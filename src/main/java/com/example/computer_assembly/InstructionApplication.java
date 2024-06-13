@@ -15,7 +15,7 @@ public class InstructionApplication extends Application {
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("instructions-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1200, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("Computer Assembly Trainer");
         stage.setScene(scene);
         stage.show();
