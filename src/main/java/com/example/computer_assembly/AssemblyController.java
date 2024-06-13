@@ -14,7 +14,7 @@ import javafx.util.Duration;
 public class AssemblyController {
 
     @FXML
-    private Button endButton;
+    private Button EndButton;
     @FXML
     private ImageView assemblyImageView;
     @FXML
@@ -48,8 +48,8 @@ public class AssemblyController {
     private Timeline timeline;
     private int timeSeconds = 300; // 5 минут = 300 секунд
 
-//    @FXML
-//    public void initialize() {
+    @FXML
+    public void initialize() {
 //        // Load the instruction image
 //        Image instructionImage = new Image(getClass().getResource("/motherboard.png").toExternalForm());
 //        if (instructionImage != null) {
@@ -80,21 +80,22 @@ public class AssemblyController {
 //        assemblyPoint4ImageView.setImage(pointImage);
 //        assemblyPoint5ImageView.setImage(pointImage);
 //
-//        // Инициализируем таймер
-//        timerLabel.setText(formatTime(timeSeconds));
-//        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-//            timeSeconds--;
-//            timerLabel.setText(formatTime(timeSeconds));
-//            if (timeSeconds <= 0) {
-//                timeline.stop();
-//                showResults();
-//            }
-//        }));
-//        timeline.setCycleCount(Timeline.INDEFINITE);
-//        timeline.play();
-//
-//
-//    }
+        // Инициализируем таймер
+
+        timerLabel.setText("Время: " + (timeSeconds));
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            timeSeconds--;
+            timerLabel.setText( "Время: " + formatTime(timeSeconds));
+            if (timeSeconds <= 0) {
+                timeline.stop();
+                showResults();
+            }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
+
+    }
 
    @FXML
    protected void onBackMainClick() {
@@ -122,7 +123,7 @@ public class AssemblyController {
             try {
                 HelloApplication mainApp = new HelloApplication();
                 mainApp.start(new Stage());
-                Stage stage = (Stage) endButton.getScene().getWindow();
+                Stage stage = (Stage) EndButton.getScene().getWindow();
                 stage.close();
             } catch (Exception e) {
                 e.printStackTrace();
