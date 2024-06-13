@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.Button?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.computer_assembly.HelloController"
+            stylesheets="@styles.css"
+            styleClass="anchor-pane">
+    <children>
+        <Button text="Начать сборку" fx:id="startAssemblyButton" onAction="#onStartAssemblyClick"
+                layoutX="900" layoutY="600" prefWidth="175" prefHeight="35"
+                style="-fx-font-size: 18px; -fx-background-color: #5d5591; -fx-text-fill: white;"/>
+        <Button text="Начать разборку" fx:id="startDisassemblyButton" onAction="#onStartDisassemblyClick"
+                layoutX="900" layoutY="660" prefWidth="175" prefHeight="35"
+                style="-fx-font-size: 18px;"/>
+        <Button text="Инструкция" fx:id="instructionsButton" onAction="#onInstructionsClick"
+                layoutX="900" layoutY="720" prefWidth="175" prefHeight="35"
+                style="-fx-font-size: 18px;"/>
+    </children>
+
+</AnchorPane>
