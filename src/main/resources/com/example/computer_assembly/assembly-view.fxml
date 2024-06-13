@@ -11,54 +11,54 @@
         <Button fx:id="startMainButton" layoutX="25" layoutY="25" onAction="#onBackMainClick" style="-fx-font-size: 18px; -fx-background-color: #5d5591; -fx-text-fill: white;" text="Назад" />
         <ImageView fx:id="assemblyClipartImageView" fitHeight="194.0" fitWidth="211.0" layoutX="65.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/Clipart.png" />
+            <Image url="/clipart.png" />
          </image></ImageView>
         <ImageView fx:id="assemblyCPUImageView" fitHeight="123.0" fitWidth="123.0" layoutX="118.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/cpu.png" />
+            <Image url="/cpu.png" />
          </image></ImageView>
         <ImageView fx:id="assemblyRAMImageView" fitHeight="81.0" fitWidth="183.0" layoutX="65.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/RAM.png" />
+            <Image url="/ram.png" />
          </image></ImageView>
 
         <ImageView fx:id="assemblyBlokImageView" fitHeight="169.0" fitWidth="169.0" layoutX="984.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="blok-pitaniya.png" />
+            <Image url="/blok-pitaniya.png" />
          </image></ImageView>
 
         <ImageView fx:id="assemblyHardDiskImageView" fitHeight="212.0" fitWidth="212.0" layoutX="964.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/Hard-Disk.png" />
+            <Image url="/Hard-Disk.png" />
          </image></ImageView>
 
         <ImageView fx:id="assemblyPointImageView" fitHeight="552.0" fitWidth="712.0" layoutX="309.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" translateZ="2.0">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/motherboard.png" />
+            <Image url="/motherboard.png" />
          </image></ImageView>
       <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="771.0" layoutY="324.0">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/point1.png" />
+            <Image url="/point1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="378.0" layoutY="370.0">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/point1.png" />
+            <Image url="/point1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="725.0" layoutY="465.0">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/point1.png" />
+            <Image url="/point1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="605.0" layoutY="190.0">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/point1.png" />
+            <Image url="/point1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="448.0" layoutY="262.0">
          <image>
-            <Image url="@../../../../../../../../../Мои%20дисциплины/Промышленное%20web/images/point1.png" />
+            <Image url="/point1.png" />
          </image>
       </ImageView>
     </children>
