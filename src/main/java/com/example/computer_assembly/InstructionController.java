@@ -20,12 +20,12 @@ public class InstructionController {
     @FXML
     public void initialize() {
         // Load the instruction image
-        Image instructionImage = new Image(getClass().getResource("/instructions.png").toExternalForm());
+        /*Image instructionImage = new Image(getClass().getResource("/instructions.png").toExternalForm());
         if (instructionImage != null) {
             instructionImageView.setImage(instructionImage);
         } else {
             System.err.println("Ошибка: Не удалось загрузить изображение instruction.png");
-        }
+        }*/
     }
 
     @FXML

@@ -68,7 +68,7 @@ public class AssemblyController {
     private int mistakeNum = 0;
 
     private Timeline timeline;
-    private int timeSeconds = 300; // 5 minutes
+    private int timeSeconds = 10;
 
     @FXML
     public void initialize() {
@@ -128,7 +128,6 @@ public class AssemblyController {
         double mouseX = event.getSceneX();
         double mouseY = event.getSceneY();
         if (isCorrect(imageView, mouseX, mouseY)) {
-            System.out.println("YOU PUT "+imageView.getId()+"Correctly");
             imageView.setVisible(false);
             pairs.get(imageView).setVisible(false);
             isCheckComponents++;
@@ -141,7 +140,7 @@ public class AssemblyController {
             checkAssembly();
     }
 
-    private boolean isUnCorrect(ImageView imageView, double mouseOffsetX, double mouseOffsetY, ImageView pointIndex){
+    private boolean isInCorrect(ImageView imageView, double mouseOffsetX, double mouseOffsetY, ImageView pointIndex){
         double startX = pointIndex.getLayoutX();
         double startY = pointIndex.getLayoutY();
         return mouseOffsetX >= startX && mouseOffsetX <= startX + 46 && mouseOffsetY >= startY && mouseOffsetY <= startY + 46;
@@ -159,7 +158,7 @@ public class AssemblyController {
         pointList.add(point5);
 
         for (ImageView view : pointList) {
-            if (isUnCorrect(imageView, mouseX, mouseY, view)) {
+            if (isInCorrect(imageView, mouseX, mouseY, view)) {
                 mistakeNum++;
             }
         }
@@ -174,8 +173,11 @@ public class AssemblyController {
         if(result < 0 ){
             result = 0;
         }
+        timeline.stop();
+
         // Показать диалог с результатами
-        showResultDialog(result, mistakeNum);
+        int finalResult = result;
+        Platform.runLater(() -> showResultDialog(finalResult, mistakeNum));
     }
 
     private void showResultDialog(int correct, int incorrect) {

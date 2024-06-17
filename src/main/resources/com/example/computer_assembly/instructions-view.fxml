@@ -12,12 +12,63 @@
             fx:controller="com.example.computer_assembly.InstructionController"
             prefHeight="400.0" prefWidth="600.0">
 
-    <children>
+   <!-- <children>
         <Button text="Назад" fx:id="startMainButton" onAction="#onBackMainClick"
                 layoutX="25" layoutY="25" style="-fx-font-size: 18px; -fx-background-color: #5d5591; -fx-text-fill: white;"/>
         <ImageView fx:id="instructionImageView" fitWidth="1000.0" fitHeight="600.0"
-                   layoutX="200.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true"
+                   layoutX="100.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true"
         />
+    </children>-->
+    <children>
+        <Button text="Назад" fx:id="startMainButton" onAction="#onBackMainClick"
+                layoutX="25" layoutY="25" style="-fx-font-size: 18px; -fx-background-color: #5d5591; -fx-text-fill: white;"/>
+        <ScrollPane layoutX="125.0" layoutY="75.0" prefWidth="1000.0" prefHeight="600.0">
+            <content>
+                <VBox spacing="10" >
+                    <children>
+                        <Label text="Инструкция" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                        <Label text="Добро пожаловать в 'Тренажер по сборке компьютера'! Это руководство поможет вам понять, как пользоваться приложением." wrapText="true"/>
+                        <Label text="Основная цель" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                        <Label text="Ваша задача — правильно расположить все компоненты компьютера на материнской плате. Вы должны разместить каждый компонент на соответствующей точке на плате." wrapText="true"/>
+                        <Label text="Компоненты" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                        <Label text="На главном экране вы увидите следующие компоненты:" wrapText="true"/>
+                        <Label text="• Процессор (CPU)" wrapText="true"/>
+                        <Label text="• Оперативная память (RAM)" wrapText="true"/>
+                        <Label text="• Блок питания" wrapText="true"/>
+                        <Label text="• Жесткий диск" wrapText="true"/>
+                        <Label text="• Видеокарта" wrapText="true"/>
+                        <Label text="Кроме того, на материнской плате выделены пять точек, куда вы должны разместить соответствующие компоненты." wrapText="true"/>
+                        <Label text="Шаги по сборке" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                        <Label text="1. Начало работы:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                        <Label text="• При запуске приложения начнется отсчет времени. У вас есть 2 минут, чтобы собрать компьютер." wrapText="true"/>
+                        <Label text="• Компоненты находятся внизу и справа от материнской платы." wrapText="true"/>
+                        <Label text="2. Перетаскивание компонентов:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                        <Label text="• Нажмите на компонент, чтобы начать его перемещение." wrapText="true"/>
+                        <Label text="• Перетащите компонент на соответствующую точку на материнской плате." wrapText="true"/>
+                        <Label text="• Компонент станет полупрозрачным, чтобы показать, что он выбран." wrapText="true"/>
+                        <Label text="3. Размещение компонентов:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                        <Label text="• Отпустите компонент над точкой, чтобы его разместить." wrapText="true"/>
+                        <Label text="• Если компонент правильно размещен, он исчезнет, и соответствующая точка тоже исчезнет." wrapText="true"/>
+                        <Label text="• Если компонент размещен неправильно, он останется на месте, и количество ошибок увеличится." wrapText="true"/>
+                        <Label text="4. Завершение сборки:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                        <Label text="• После размещения всех компонентов или по истечении времени будет показан результат." wrapText="true"/>
+                        <Label text="• Вы также можете нажать кнопку 'Завершить', чтобы прекратить сборку и посмотреть результат." wrapText="true"/>
+                        <Label text="Оценка" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                        <Label text="Результаты сборки будут показаны в диалоговом окне:" wrapText="true"/>
+                        <Label text="• Количество правильно размещенных компонентов." wrapText="true"/>
+                        <Label text="• Количество неправильно размещенных компонентов." wrapText="true"/>
+                        <Label text="• Ваша итоговая оценка (количество правильно размещенных компонентов минус количество ошибок)." wrapText="true"/>
+                        <Label text="Управление временем" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                        <Label text="• В верхней части экрана находится таймер, который показывает оставшееся время." wrapText="true"/>
+                        <Label text="• Таймер начнет отсчет автоматически при запуске приложения." wrapText="true"/>
+                        <Label text="Показ результата" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                        <Label text="• После завершения сборки или истечения времени появится окно с результатами, где вы увидите вашу оценку." wrapText="true"/>
+                        <Label text="• Вы можете начать новый сеанс, нажав на кнопку в диалоговом окне результатов." wrapText="true"/>
+                        <Label text="Спасибо за использование нашего приложения! Удачной сборки!" wrapText="true"/>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
     </children>
 
 </AnchorPane>

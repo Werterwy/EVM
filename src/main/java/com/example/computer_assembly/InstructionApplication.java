@@ -18,6 +18,7 @@ public class InstructionApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("Computer Assembly Trainer");
         stage.setScene(scene);
+        stage.setResizable(false);  // Запретить изменение размера окна
         stage.show();
     }
 }
