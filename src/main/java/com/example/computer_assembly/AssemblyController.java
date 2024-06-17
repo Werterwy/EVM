@@ -1,176 +1,24 @@
-/*
 package com.example.computer_assembly;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.BoundingBox;
+import javafx.geometry.Bounds;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-
-public class AssemblyController {
-
-    @FXML
-    private Button EndButton;
-    @FXML
-    private ImageView assemblyImageView;
-    @FXML
-    private ImageView assemblyClipartImageView;
-    @FXML
-    private ImageView assemblyCPUImageView;
-    @FXML
-    private ImageView assemblyRAMImageView;
-    @FXML
-    private ImageView assemblyBlokImageView;
-
-    @FXML
-    private ImageView assemblyHardDiskImageView;
-    @FXML
-    private ImageView assemblyPoint1ImageView;
-    @FXML
-    private ImageView assemblyPoint2ImageView;
-    @FXML
-    private ImageView assemblyPoint3ImageView;
-    @FXML
-    private ImageView assemblyPoint4ImageView;
-    @FXML
-    private ImageView assemblyPoint5ImageView;
-
-    @FXML
-    private Button startMainButton;
-
-    @FXML
-    private Label timerLabel;
-
-    private Timeline timeline;
-    private int timeSeconds = 300; // 5 минут = 300 секунд
-
-    @FXML
-    public void initialize() {
-//        // Load the instruction image
-//        Image instructionImage = new Image(getClass().getResource("/motherboard.png").toExternalForm());
-//        if (instructionImage != null) {
-//            assemblyImageView.setImage(instructionImage);
-//        } else {
-//            System.err.println("Ошибка: Не удалось загрузить изображение instruction.png");
-//        }
-//
-//        Image clipartimage = new Image(getClass().getResource("/clipart.png").toExternalForm());
-//        assemblyClipartImageView.setImage(clipartimage);
-//
-//        Image cpuImage = new Image(getClass().getResource("/cpu.png").toExternalForm());
-//        assemblyCPUImageView.setImage(cpuImage);
-//
-//        Image ramImage = new Image(getClass().getResource("/ram.png").toExternalForm());
-//        assemblyRAMImageView.setImage(ramImage);
-//
-//        Image blokImage = new Image(getClass().getResource("/blok-pitaniya1.png").toExternalForm());
-//        assemblyBlokImageView.setImage(blokImage);
-//
-//        Image hardDiskImage = new Image(getClass().getResource("/Hard-Disk.png").toExternalForm());
-//        assemblyHardDiskImageView.setImage(hardDiskImage);
-//
-//        Image pointImage = new Image(getClass().getResource("/point.png").toExternalForm());
-//        assemblyPoint1ImageView.setImage(pointImage);
-//        assemblyPoint2ImageView.setImage(pointImage);
-//        assemblyPoint3ImageView.setImage(pointImage);
-//        assemblyPoint4ImageView.setImage(pointImage);
-//        assemblyPoint5ImageView.setImage(pointImage);
-//
-        // Инициализируем таймер
-
-        timerLabel.setText("Время: " + (timeSeconds));
-        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            timeSeconds--;
-            timerLabel.setText( "Время: " + formatTime(timeSeconds));
-            if (timeSeconds <= 0) {
-                timeline.stop();
-                showResults();
-            }
-        }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
-
-
-    }
-
-   @FXML
-   protected void onBackMainClick() {
-        System.out.println("Начать сборку clicked");
-
-        // Close current application and start InstructionApplication
-        Platform.runLater(() -> {
-            try {
-                HelloApplication mainApp = new HelloApplication();
-                mainApp.start(new Stage());
-                Stage stage = (Stage) startMainButton.getScene().getWindow();
-                stage.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    @FXML
-    protected void onEndMainClick() {
-        System.out.println("Завершить clicked");
-
-        // Close current application and start InstructionApplication
-        Platform.runLater(() -> {
-            try {
-                HelloApplication mainApp = new HelloApplication();
-                mainApp.start(new Stage());
-                Stage stage = (Stage) EndButton.getScene().getWindow();
-                stage.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    private String formatTime(int seconds) {
-        int minutes = seconds / 60;
-        int remainingSeconds = seconds % 60;
-        return String.format("%02d:%02d", minutes, remainingSeconds);
-    }
-
-    private void showResults() {
-        // Логика для перехода к результатам
-        System.out.println("Переход к результатам");
-        // Здесь вы можете заменить System.out.println на вызов метода для отображения результатов
-    }
-
-   */
-/* @FXML
-    private void onEndMainClick() {
-        // Логика для завершения сборки
-        System.out.println("Сборка завершена");
-        // Вы можете также остановить таймер, если нужно
-        timeline.stop();
-        showResults();
-    }*//*
-
-}
-*/
-
-package com.example.computer_assembly;
-
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AssemblyController {
 
@@ -215,11 +63,17 @@ public class AssemblyController {
 
     private int isCheckComponents = 0;
 
+    private int correctComponents = 0;
+
+    private int mistakeNum = 0;
+
     private Timeline timeline;
     private int timeSeconds = 300; // 5 minutes
 
     @FXML
     public void initialize() {
+        initMap();
+
         makeDraggable(assemblyClipartImageView);
         makeDraggable(assemblyCPUImageView);
         makeDraggable(assemblyRAMImageView);
@@ -237,6 +91,7 @@ public class AssemblyController {
 
     private void onDragStart(MouseEvent event) {
         ImageView imageView = (ImageView) event.getSource();
+        Bounds parentBounds = imageView.getParent().getLayoutBounds();
         mouseOffsetX = event.getSceneX() - imageView.getX();
         mouseOffsetY = event.getSceneY() - imageView.getY();
         imageView.setOpacity(0.5);
@@ -250,108 +105,63 @@ public class AssemblyController {
         //System.out.println("Dragging " + imageView.getId() + " to: X=" + imageView.getX() + ", Y=" + imageView.getY());
     }
 
+    private HashMap<ImageView, ImageView> pairs;
+
+    private void initMap() {
+        pairs = new HashMap<>();
+
+        pairs.put(assemblyCPUImageView, point1);
+        pairs.put(assemblyBlokImageView, point2);
+        pairs.put(assemblyRAMImageView, point3);
+        pairs.put(assemblyHardDiskImageView, point4);
+        pairs.put(assemblyClipartImageView, point5);
+    }
+
+    private boolean isCorrect(ImageView imageView, double mouseX, double mouseY) {
+        double startX = pairs.get(imageView).getLayoutX();
+        double startY = pairs.get(imageView).getLayoutY();
+        return mouseX >= startX && mouseX <= startX + 46 && mouseY >= startY && mouseY <= startY + 46;
+    }
+
     private void onDragEnd(MouseEvent event, ImageView imageView) {
         imageView.setOpacity(1.0);
-       // System.out.println(assemblyCPUImageView + "\n X " + imageView.getX() + " Y " + imageView.getY());
-
-        if (imageView.equals(assemblyCPUImageView) && !isCPUSet ) {
-            startX = imageView.getX() + 118;
-            startY = imageView.getY() + 298;
-           // layoutX="771.0" layoutY="324.0">
-            if(startX <= 771 &&  771 >= startX -46 && startY <= 324 && 324 >= startY - 46) {
-                isCPUSet = true;
-                imageView.setVisible(false);
-                point1.setVisible(false);
-                isCheckComponents++;
-                System.out.println(isCPUSet + " isCPUSet");
-            }else{
-                isErrorOutputCom(imageView);
-            }
-        } else if (imageView.equals(assemblyBlokImageView) && !isBlokSet) {
-            // layoutX="378.0" layoutY="370.0"
-            startX = imageView.getX() + 984;
-            startY = imageView.getY() + 116;
-
-
-            if (startX <= 378 && 378  >= startX - 46 && startY <= 370  && 370 >= startY - 46) {
-                isBlokSet = true;
-                imageView.setVisible(false);
-                point2.setVisible(false);
-                isCheckComponents++;
-                System.out.println(isBlokSet + " isBlokSet");
-
-            }else{
-                isErrorOutputCom(imageView);
-            }
-        } else if (imageView.equals( assemblyRAMImageView) && !isRAMSet) {
-            // layoutX="725.0" layoutY="465.0"
-
-            startX = imageView.getX() + 65;
-            startY = imageView.getY() + 488;
-            if (startX <= 725 && 725 >= startX - 46 && startY <= 465 && 465 >= startY - 46) {
-                isRAMSet = true;
-                imageView.setVisible(false);
-                point3.setVisible(false);
-                isCheckComponents++;
-                System.out.println(isRAMSet + " isRAMSet");
-            }else{
-                isErrorOutputCom(imageView);
-            }
-        } else if (imageView.equals(assemblyHardDiskImageView) && !isHardDiskSet) {
-            // layoutX="605.0" layoutY="190.0"
-          // layoutX="964.0" layoutY="298.0"
-            startX = imageView.getX() + 964;
-            startY = imageView.getY() + 298;
-            if (startX <= 605 && 605 >=  startX - 46  && startY <= 190 && 190 >= startY - 46) {
-                isHardDiskSet = true;
-                imageView.setVisible(false);
-                point4.setVisible(false);
-                isCheckComponents++;
-                System.out.println(isHardDiskSet + " isHardDiskSet");
-            }else{
-                isErrorOutputCom(imageView);
-            }
-        } else if (imageView.equals(assemblyClipartImageView) && !isClipartSet) {
-            // layoutX="448.0" layoutY="262.0"
-            //layoutX="65.0" layoutY="91.0"
-            startX = imageView.getX() + 65;
-            startY = imageView.getY() + 91;
-            if (startX <= 448 && 448 >= startX - 46 && startY <= 262 &&  262 >= startY - 46) {
-                isClipartSet = true;
-                imageView.setVisible(false);
-                point5.setVisible(false);
-                isCheckComponents++;
-                System.out.println(isClipartSet + " isClipartSet");
-            }else{
-                isErrorOutputCom(imageView);
-            }
+        double mouseX = event.getSceneX();
+        double mouseY = event.getSceneY();
+        if (isCorrect(imageView, mouseX, mouseY)) {
+            System.out.println("YOU PUT "+imageView.getId()+"Correctly");
+            imageView.setVisible(false);
+            pairs.get(imageView).setVisible(false);
+            isCheckComponents++;
+            correctComponents++;
+        }else{
+            isErrorOutputCom(imageView, mouseX, mouseY);
         }
+
         if(isCheckComponents == 5)
             checkAssembly();
     }
 
-    private void isErrorOutputCom(ImageView imageView) {
-        if (startX <= 771 && 771 >= startX - 46 && startY <= 324 && 324 >= startY - 46) {
-            imageView.setVisible(false);
-            point1.setVisible(false);
-            isCheckComponents++;
-            System.out.println("point1" + imageView.getId());
-        } else if (startX <= 378 && 378  >= startX - 46 && startY <= 370  && 370 >= startY - 46) {
-            imageView.setVisible(false);
-            point2.setVisible(false);
-            isCheckComponents++;
-        } else if (startX <= 725 && 725 >= startX - 46 && startY <= 465 && 465 >= startY - 46) {
-            imageView.setVisible(false);
-            point3.setVisible(false);
-            isCheckComponents++;
-        } else if (startX <= 605 && 605 >=  startX - 46  && startY <= 190 && 190 >= startY - 46) {
-            imageView.setVisible(false);
-            point4.setVisible(false);
-            isCheckComponents++;
-        } else if (startX <= 448 && 448 >= startX - 46 && startY <= 262 &&  262 >= startY - 46) {
-            imageView.setVisible(false);
-            point5.setVisible(false);
-            isCheckComponents++;
+    private boolean isUnCorrect(ImageView imageView, double mouseOffsetX, double mouseOffsetY, ImageView pointIndex){
+        double startX = pointIndex.getLayoutX();
+        double startY = pointIndex.getLayoutY();
+        return mouseOffsetX >= startX && mouseOffsetX <= startX + 46 && mouseOffsetY >= startY && mouseOffsetY <= startY + 46;
+    }
+
+
+    private void isErrorOutputCom(ImageView imageView, double mouseX, double mouseY) {
+        imageView.setOpacity(1.0);
+
+        List<ImageView> pointList = new ArrayList<>();
+        pointList.add(point1);
+        pointList.add(point2);
+        pointList.add(point3);
+        pointList.add(point4);
+        pointList.add(point5);
+
+        for (ImageView view : pointList) {
+            if (isUnCorrect(imageView, mouseX, mouseY, view)) {
+                mistakeNum++;
+            }
         }
     }
 
@@ -359,18 +169,13 @@ public class AssemblyController {
             showResult();
     }
     private void showResult() {
-        // Рассчитайте оценку в зависимости от правильно размещенных компонентов
-        int correctComponents = 0;
-        if (isCPUSet) correctComponents++;
-        if (isRAMSet) correctComponents++;
-        if (isBlokSet) correctComponents++;
-        if (isHardDiskSet) correctComponents++;
-        if (isClipartSet) correctComponents++;
 
-        int result = correctComponents;
-
+        int result = correctComponents - mistakeNum;
+        if(result < 0 ){
+            result = 0;
+        }
         // Показать диалог с результатами
-        showResultDialog(result, 5 - result);
+        showResultDialog(result, mistakeNum);
     }
 
     private void showResultDialog(int correct, int incorrect) {
@@ -412,18 +217,6 @@ public class AssemblyController {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-       /* timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            timeSeconds--;
-            timerLabel.setText("Время: " + timeSeconds);
-            if (timeSeconds <= 0) {
-                timeline.stop();
-                // Обработка завершения времени
-                System.out.println("Время истекло!");
-                // Example: showTimeUpDialog();
-            }
-        }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();*/
     }
 
     @FXML

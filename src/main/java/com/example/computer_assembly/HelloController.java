@@ -43,7 +43,7 @@ public class HelloController {
         });
     }
 
-    @FXML
+  /*  @FXML
     protected void onStartDisassemblyClick() {
         System.out.println("Начать разборку clicked");
 
@@ -59,7 +59,7 @@ public class HelloController {
             }
         });
 
-    }
+    }*/
 
     @FXML
     protected void onInstructionsClick() {
