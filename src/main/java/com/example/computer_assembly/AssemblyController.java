@@ -35,6 +35,8 @@ public class AssemblyController {
     @FXML
     private ImageView assemblyMotherboardImageView;
     @FXML
+    private ImageView assemblySATAImageView;
+    @FXML
     private ImageView point1;
     @FXML
     private ImageView point2;
@@ -52,23 +54,16 @@ public class AssemblyController {
     private double mouseOffsetX;
     private double mouseOffsetY;
 
-    private double startX;
-    private double startY;
-
-    private boolean isCPUSet = false;
-    private boolean isRAMSet = false;
-    private boolean isBlokSet = false;
-    private boolean isHardDiskSet = false;
-    private boolean isClipartSet = false;
-
     private int isCheckComponents = 0;
 
     private int correctComponents = 0;
 
     private int mistakeNum = 0;
 
+    private boolean isHardCorrect = false;
+
     private Timeline timeline;
-    private int timeSeconds = 10;
+    private int timeSeconds = 120;
 
     @FXML
     public void initialize() {
@@ -79,6 +74,7 @@ public class AssemblyController {
         makeDraggable(assemblyRAMImageView);
         makeDraggable(assemblyBlokImageView);
         makeDraggable(assemblyHardDiskImageView);
+        makeDraggable(assemblySATAImageView);
 
         startTimer();
     }
@@ -91,7 +87,6 @@ public class AssemblyController {
 
     private void onDragStart(MouseEvent event) {
         ImageView imageView = (ImageView) event.getSource();
-        Bounds parentBounds = imageView.getParent().getLayoutBounds();
         mouseOffsetX = event.getSceneX() - imageView.getX();
         mouseOffsetY = event.getSceneY() - imageView.getY();
         imageView.setOpacity(0.5);
@@ -102,7 +97,6 @@ public class AssemblyController {
         ImageView imageView = (ImageView) event.getSource();
         imageView.setX(event.getSceneX() - mouseOffsetX);
         imageView.setY(event.getSceneY() - mouseOffsetY);
-        //System.out.println("Dragging " + imageView.getId() + " to: X=" + imageView.getX() + ", Y=" + imageView.getY());
     }
 
     private HashMap<ImageView, ImageView> pairs;
@@ -111,16 +105,28 @@ public class AssemblyController {
         pairs = new HashMap<>();
 
         pairs.put(assemblyCPUImageView, point1);
-        pairs.put(assemblyBlokImageView, point2);
+        pairs.put(assemblyBlokImageView, point4);
         pairs.put(assemblyRAMImageView, point3);
-        pairs.put(assemblyHardDiskImageView, point4);
+        pairs.put(assemblySATAImageView, point2);
+        pairs.put(assemblyHardDiskImageView, point2);
         pairs.put(assemblyClipartImageView, point5);
     }
 
     private boolean isCorrect(ImageView imageView, double mouseX, double mouseY) {
         double startX = pairs.get(imageView).getLayoutX();
         double startY = pairs.get(imageView).getLayoutY();
+        if (imageView == assemblySATAImageView){
+            if(mouseX >= startX && mouseX <= startX + 46 && mouseY >= startY && mouseY <= startY + 46){
+                isHardCorrect = true;
+                return true;
+            }
+        }else if(imageView == assemblyHardDiskImageView && isHardCorrect){
+            return mouseX >= startX && mouseX <= startX + 46 && mouseY >= startY && mouseY <= startY + 46;
+        }else if (imageView == assemblyHardDiskImageView){
+            return false;
+        }
         return mouseX >= startX && mouseX <= startX + 46 && mouseY >= startY && mouseY <= startY + 46;
+
     }
 
     private void onDragEnd(MouseEvent event, ImageView imageView) {
@@ -129,14 +135,16 @@ public class AssemblyController {
         double mouseY = event.getSceneY();
         if (isCorrect(imageView, mouseX, mouseY)) {
             imageView.setVisible(false);
-            pairs.get(imageView).setVisible(false);
+            if(imageView != assemblySATAImageView){
+                pairs.get(imageView).setVisible(false);
+            }
             isCheckComponents++;
             correctComponents++;
         }else{
             isErrorOutputCom(imageView, mouseX, mouseY);
         }
 
-        if(isCheckComponents == 5)
+        if(isCheckComponents == 6)
             checkAssembly();
     }
 
@@ -165,26 +173,32 @@ public class AssemblyController {
     }
 
     private void checkAssembly() {
-            showResult();
+        timeline.stop();
+        transitionToActivity();
     }
     private void showResult() {
+        int mark;
+        int result =  correctComponents - mistakeNum;
 
-        int result = correctComponents - mistakeNum;
-        if(result < 0 ){
-            result = 0;
+        if(result >= 10) {
+            mark = 5;
+        } else if(result >= 8 ) {
+            mark = 4;
+        } else if(result > 5) {
+            mark = 3;
+        } else {
+            mark = 2;
         }
-        timeline.stop();
+        int allInCorrect = 11 - correctComponents + mistakeNum;
 
-        // Показать диалог с результатами
-        int finalResult = result;
-        Platform.runLater(() -> showResultDialog(finalResult, mistakeNum));
+        Platform.runLater(() -> showResultDialog(mark, allInCorrect));
     }
 
-    private void showResultDialog(int correct, int incorrect) {
+    private void showResultDialog(int mark, int incorrect) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Результаты сборки");
         alert.setHeaderText(null);
-        alert.setContentText("Правильно размещено: " + correct + "\nНеправильно размещено: " + incorrect + "\nВаша оценка: " + correct);
+        alert.setContentText("Правильно размещено: " + correctComponents + "\nНеправильно размещено: " + incorrect + "\nВаша оценка: " + mark);
 
         alert.showAndWait();
 
@@ -192,6 +206,20 @@ public class AssemblyController {
             try {
                 HelloApplication instructionApp = new HelloApplication();
                 instructionApp.start(new Stage());
+                Stage stage = (Stage) endButton.getScene().getWindow();
+                stage.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+    }
+
+    private void transitionToActivity(){
+        Platform.runLater(() -> {
+            try {
+                Assembly2Application assembly2Application = new Assembly2Application(correctComponents, mistakeNum, timeSeconds);
+                assembly2Application.start(new Stage());
                 Stage stage = (Stage) endButton.getScene().getWindow();
                 stage.close();
             } catch (Exception e) {
@@ -224,7 +252,17 @@ public class AssemblyController {
     @FXML
     private void onEndMainClick() {
         timeline.stop();
-        showResult();
+
+        Platform.runLater(() -> {
+            try {
+                HelloApplication instructionApp = new HelloApplication();
+                instructionApp.start(new Stage());
+                Stage stage = (Stage) endButton.getScene().getWindow();
+                stage.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
 

@@ -1,15 +1,101 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="Computer_assembly:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Computer_assembly_jar</output-path>
+    <output-path>$PROJECT_DIR$/Computer_assembly_jar</output-path>
     <root id="archive" name="Computer_assembly.jar">
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/19/javafx-base-19-win.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/19/javafx-base-19.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/19/javafx-fxml-19-win.jar" path-in-jar="/" />
+      <element id="module-output" name="Computer_assembly" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/19/javafx-graphics-19.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/19/javafx-controls-19-win.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/19/javafx-fxml-19.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/19/javafx-controls-19.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/19/javafx-graphics-19-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/19/javafx-base-19-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/19/javafx-fxml-19-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/19/javafx-controls-19.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/19/javafx-base-19.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/appletviewer.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/awt.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/bci.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/cmm.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/dcpr.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/decora_sse.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/deploy.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/dt_socket.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/eula.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/fontmanager.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/fxplugins.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/glass.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/glib-lite.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/gstreamer-lite.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/idlj.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/instrument.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/j2pcsc.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/j2pkcs11.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jaas_nt.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jabswitch.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jaccessinspector.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jaccesswalker.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/java.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/java.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/javaaccessbridge.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/javacpl.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/javafx_font.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/javafx_font_t2k.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/javafx_iio.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/javajpeg.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/javaw.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/javaws.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jawt.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jdwp.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jfxmedia.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jfxwebkit.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jimage.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jjs.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jli.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jp2iexp.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jp2native.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jp2ssv.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jrunscript.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jsound.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jsoundds.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/jweblauncher.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/kcms.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/keytool.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/kinit.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/klist.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/ktab.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/lcms.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/le.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/management.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/management_agent.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/management_ext.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/mlib_image.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/msvcp120.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/msvcr120.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/net.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/nio.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/orbd.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/pack200.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/prefs.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/prism_common.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/prism_d3d.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/prism_sw.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/rm.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/rmi.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/rmid.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/rmiregistry.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/servertool.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/splashscreen.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/ssvagent.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/sunec.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/sunmscapi.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/t2k.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/tnameserv.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/unpack.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/unpack200.exe" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/verify.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/w2k_lsa_auth.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/windowsaccessbridge-64.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/wsdetect.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Program Files/Java/jre-9/bin/zip.dll" />
     </root>
   </artifact>
 </component>

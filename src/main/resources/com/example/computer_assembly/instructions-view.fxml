@@ -37,6 +37,12 @@
                         <Label text="• Блок питания" wrapText="true"/>
                         <Label text="• Жесткий диск" wrapText="true"/>
                         <Label text="• Видеокарта" wrapText="true"/>
+                        <Label text="• Кабель SATA" wrapText="true"/>
+                        <Label text="• Кулер" wrapText="true"/>
+                        <Label text="• Звуковая карта" wrapText="true"/>
+                        <Label text="• Сетевая карта" wrapText="true"/>
+                        <Label text="• DVD" wrapText="true"/>
+                        <Label text="• Питания кулера" wrapText="true"/>
                         <Label text="Кроме того, на материнской плате выделены пять точек, куда вы должны разместить соответствующие компоненты." wrapText="true"/>
                         <Label text="Шаги по сборке" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
                         <Label text="1. Начало работы:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>

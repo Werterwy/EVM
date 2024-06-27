@@ -43,23 +43,6 @@ public class HelloController {
         });
     }
 
-  /*  @FXML
-    protected void onStartDisassemblyClick() {
-        System.out.println("Начать разборку clicked");
-
-        // Close current application and start InstructionApplication
-        Platform.runLater(() -> {
-            try {
-                DisassemblyApplication disasemblyApp = new DisassemblyApplication();
-                disasemblyApp.start(new Stage());
-                Stage stage = (Stage) startDisassemblyButton.getScene().getWindow();
-                stage.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-
-    }*/
 
     @FXML
     protected void onInstructionsClick() {
